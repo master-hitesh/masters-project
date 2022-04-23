@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# COVPRO DASHBOARD
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React based patient dashboard web application for -
+1. Monitoring Covid-19 positive patients based on health data. 
+2. Assigning hospital beds to most critical patients.
+3. Chat based support for Covid-19 positive patients.
 
 ## Available Scripts
 
