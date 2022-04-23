@@ -5,8 +5,6 @@ React based patient dashboard web application for -
 2. Assigning hospital beds to most critical patients.
 3. Chat based support for Covid-19 positive patients.
 
-## Available Scripts
-
 In the project directory, run:
 
 ### `npm install`

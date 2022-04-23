@@ -2,8 +2,6 @@
 
 Express based web server application for accessing Cloudant database of patients/hospitals
 
-## Available Scripts
-
 In the project directory, run:
 
 ### `npm install`

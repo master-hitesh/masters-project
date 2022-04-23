@@ -5,8 +5,6 @@ React-Native based mobile application for Covid-19 positive patients with major 
 2. Add or update health data and symptoms on a regular basis.
 3. Chat based support.
 
-## Available Scripts
-
 In the project directory, run:
 
 ### `npm install`
