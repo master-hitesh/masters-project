@@ -12,12 +12,12 @@ import {
   ADD_HEALTH_DATA_REQUEST,
   ADD_HEALTH_DATA_SUCCESS,
   ADD_HEALTH_DATA_FAILURE,
-  ADD_QUESTION_REQUEST,
-  ADD_QUESTION_SUCCESS,
-  ADD_QUESTION_FAILURE,
+  ADD_COMMENT_REQUEST,
+  ADD_COMMENT_SUCCESS,
+  ADD_COMMENT_FAILURE,
 } from "./userTypes";
 import axios from "axios";
-import { baseURL } from "../../shared/baseURL";
+import { baseURL } from "../../shared/BaseURL";
 
 export const registerUserRequest = () => {
   return {
@@ -167,38 +167,38 @@ export const addHealthData = (userObj) => {
   };
 };
 
-export const askQuestionRequest = () => {
+export const addCommentRequest = () => {
   return {
-    type: ADD_QUESTION_REQUEST,
+    type: ADD_COMMENT_REQUEST,
   };
 };
 
-export const askQuestionSuccess = (data) => {
+export const addCommentSuccess = (data) => {
   return {
-    type: ADD_QUESTION_SUCCESS,
+    type: ADD_COMMENT_SUCCESS,
     payload: data,
   };
 };
 
-export const askQuestionFailure = (error) => {
+export const addCommentFailure = (error) => {
   return {
-    type: ADD_QUESTION_FAILURE,
+    type: ADD_COMMENT_FAILURE,
     payload: error,
   };
 };
 
-export const askQuestion = (userObj) => {
+export const addComment = (userObj) => {
   return (dispatch) => {
-    dispatch(askQuestionRequest());
+    dispatch(addCommentRequest());
     axios
-      .post(baseURL + "askQuestion", userObj)
+      .post(baseURL + "addComment", userObj)
       .then((response) => {
         const data = response.data;
-        dispatch(askQuestionSuccess(data));
+        dispatch(addCommentSuccess(data));
       })
       .catch((error) => {
         // error.message is the error message
-        dispatch(askQuestionFailure(error.message));
+        dispatch(addCommentFailure(error.message));
       });
   };
 };

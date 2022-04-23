@@ -4,7 +4,7 @@ import HeaderComponent from "./HeaderComponent";
 import moment from "moment";
 import { connect } from "react-redux";
 import Icon from "react-native-vector-icons/Ionicons";
-import { askQuestion } from "../redux/user/userActions";
+import { addComment } from "../redux/user/userActions";
 
 const mapStateToProps = (state) => {
   console.log("ChatComponent State --> ", state);
@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  askQuestion: (userObj) => dispatch(askQuestion(userObj)),
+  addComment: (userObj) => dispatch(addComment(userObj)),
 });
 
 function RenderComments({ comments }) {
@@ -40,16 +40,16 @@ class ChatComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      question: "",
+      comment: "",
     };
   }
 
-  askQuestion() {
+  addComment() {
     const userObj = {
       id: this.props.user.data.userId,
-      question: this.state.question,
+      comment: this.state.comment,
     };
-    this.props.askQuestion(userObj);
+    this.props.addComment(userObj);
   }
 
   render() {
@@ -69,14 +69,17 @@ class ChatComponent extends Component {
               </Text>
               <RenderComments comments={this.props.user.data.chat} />
             </View>
-            <View style={styles.questionContainer}>
+            <View style={styles.commentContainer}>
               <View style={{ margin: 20, backgroundColor: "#ffffff" }}>
                 <TextInput
-                  style={styles.questionText}
+                  style={styles.commentText}
                   onChangeText={(text) => {
-                    this.setState({ question: "You : " + text, enabled: true });
+                    this.setState({
+                      comment: "Patient : " + text,
+                      enabled: true,
+                    });
                   }}
-                  placeholder="Enter your question..."
+                  placeholder="Enter your comment..."
                 />
               </View>
               <View>
@@ -84,7 +87,7 @@ class ChatComponent extends Component {
                   name="send"
                   size={30}
                   color="#0198a2"
-                  onPress={() => this.askQuestion()}
+                  onPress={() => this.addComment()}
                 />
               </View>
             </View>
@@ -118,7 +121,7 @@ const styles = StyleSheet.create({
     color: "black",
     fontWeight: "bold",
   },
-  questionText: {
+  commentText: {
     width: 300,
     height: 50,
     borderColor: "gray",
@@ -126,7 +129,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     paddingLeft: 10,
   },
-  questionContainer: {
+  commentContainer: {
     position: "relative",
     top: 0,
     flexDirection: "row",

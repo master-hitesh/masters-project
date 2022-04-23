@@ -12,9 +12,9 @@ import {
   ADD_HEALTH_DATA_REQUEST,
   ADD_HEALTH_DATA_SUCCESS,
   ADD_HEALTH_DATA_FAILURE,
-  ADD_QUESTION_REQUEST,
-  ADD_QUESTION_SUCCESS,
-  ADD_QUESTION_FAILURE,
+  ADD_COMMENT_REQUEST,
+  ADD_COMMENT_SUCCESS,
+  ADD_COMMENT_FAILURE,
 } from "./userTypes";
 
 const initialState = {
@@ -108,19 +108,19 @@ const userReducer = (state = initialState, action) => {
         data: [],
         error: action.payload,
       };
-    case ADD_QUESTION_REQUEST:
+    case ADD_COMMENT_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case ADD_QUESTION_SUCCESS:
+    case ADD_COMMENT_SUCCESS:
       return {
         ...state,
         loading: false,
         data: action.payload,
         error: "",
       };
-    case ADD_QUESTION_FAILURE:
+    case ADD_COMMENT_FAILURE:
       return {
         ...state,
         loading: false,

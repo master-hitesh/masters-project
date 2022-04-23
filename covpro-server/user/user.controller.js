@@ -49,12 +49,30 @@ module.exports = {
     });
   },
 
-  askQuestion: (request, response, next) => {
+  addComment: (request, response, next) => {
     var payloadData = {
-      comment: request.body.question,
+      comment: request.body.comment,
       timestamp: Date.now(),
     };
-    user.askQuestion(request.body.id, payloadData, function (err, data) {
+    user.addComment(request.body.id, payloadData, function (err, data) {
+      response.send(data);
+    });
+  },
+
+  getUsersByRisk: (request, response, next) => {
+    user.getUsersByRisk(request.params.riskId, function (err, data) {
+      response.send(data);
+    });
+  },
+
+  verifyUser: (request, response, next) => {
+    user.verifyUser(request.body.id, function (err, data) {
+      response.send(data);
+    });
+  },
+
+  assignHospital: (request, response, next) => {
+    user.assignHospital(request, function (err, data) {
       response.send(data);
     });
   },

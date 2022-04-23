@@ -130,7 +130,7 @@ class HealthDataComponent extends Component {
               this.setState({ comorbidity: itemValue })
             }
           >
-            <Picker.Item label="Hypertention" value="Hypertention" />
+            <Picker.Item label="Hypertension" value="Hypertension" />
             <Picker.Item label="Diabetes" value="Diabetes" />
             <Picker.Item label="Pulmonary Disease" value="Pulmonary Disease" />
             <Picker.Item
